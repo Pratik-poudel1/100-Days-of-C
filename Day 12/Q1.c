@@ -1,0 +1,18 @@
+// Write a program in C to generate the first N Fibonacci numbers where N is entered by the user.
+
+# include <stdio.h>
+int main()
+{
+    int n,i,fib1=0,fib2=1,fib3;
+    printf("Enter number of terms: ");
+    scanf("%d",&n);
+    printf("Fibonacci Series: ");
+    for(i=1;i<=n;i++)
+    {
+        printf("%d, ",fib1);
+        fib3=fib1+fib2;
+        fib1=fib2;
+        fib2=fib3;
+    }
+    return 0;
+}

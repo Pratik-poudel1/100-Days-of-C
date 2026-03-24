@@ -1,37 +1,47 @@
-// Write a program in C to find the intersection of two arrays (common elements).
+// Write a program in C to multiply two matrices of size p×q and q×r.
 
 # include <stdio.h>
 int main()
 {
-    int n1, n2, arr1[100], arr2[100], i, j, k = 0;
-    printf("Enter the number of elements in array 1: ");
-    scanf("%d", &n1);
-    printf("Enter the elements of array 1: ");
-    for (i = 0; i < n1; i++)
+    int p,q,r,i,j,k,a[10][10],b[10][10],c[10][10];
+    printf("Enter the number of rows and columns of the first matrix: \n");
+    scanf("%d %d",&p,&q);
+    printf("Enter the number of rows and columns of the second matrix: \n");
+    scanf("%d %d",&q,&r);
+    printf("Enter the elements of the first matrix:\n");
+    for(i=0;i<p;i++)
     {
-        scanf("%d", &arr1[i]);
-    }
-    printf("Enter the number of elements in array 2: ");
-    scanf("%d", &n2);
-    printf("Enter the elements of array 2: ");
-    for (i = 0; i < n2; i++)
-    {
-        scanf("%d", &arr2[i]);
-    }
-    for (i = 0; i < n1; i++)
-    {
-        for (j = 0; j < n2; j++)
+        for(j=0;j<q;j++)
         {
-            if (arr1[i] == arr2[j])
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter the elements of the second matrix:\n");
+    for(i=0;i<q;i++)
+    {
+        for(j=0;j<r;j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i=0;i<p;i++)
+    {
+        for(j=0;j<r;j++)
+        {
+            c[i][j]=0;
+            for(k=0;k<q;k++)
             {
-                printf("%d ", arr1[i]);
-                k++;
+                c[i][j]+=a[i][k]*b[k][j];
             }
         }
     }
-    if (k == 0)
+    printf("The product of the matrices is:\n");
+    for(i=0;i<p;i++)
     {
-        printf("No common elements found.");
+        for(j=0;j<r;j++)
+        {
+            printf("%d\t",c[i][j]);
+        }
+        printf("\n");
     }
-    return 0;
 }

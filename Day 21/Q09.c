@@ -1,34 +1,23 @@
-// Write a program in C to move all zeros to the end of an array without changing order of non-zero elements.
+// Write a program in C to find the sum of both diagonal elements of a square matrix.
 
 # include <stdio.h>
 int main()
 {
-    int n;
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    int arr[n];
-    printf("Enter the elements: ");
-    for (int i = 0; i < n; i++)
+    int m[10][10],sum=0,m,n,i,j;
+    printf("Enter the number of rows and columns: \n");
+    scanf("%d %d",&m,&n);
+    printf("Enter the elements of the matrix:\n");
+    for(i=0;i<m;i++)
     {
-        scanf("%d", &arr[i]);
-    }
-    int count = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] != 0)
+        for(j=0;j<n;j++)
         {
-            arr[count] = arr[i];
-            count++;
+            scanf("%d",&m[i][j]);
+            if(i==j)
+                sum+=m[i][j];
+            if(i+j==n-1)
+                sum+=m[i][j];
         }
     }
-    for (int i = count; i < n; i++)
-    {
-        arr[i] = 0;
-    }
-    printf("Array after moving zeros to the end: ");
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
+    printf("The sum of the diagonal elements of the matrix is: %d\n",sum);
     return 0;
 }

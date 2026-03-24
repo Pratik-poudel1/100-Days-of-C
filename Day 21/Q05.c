@@ -1,31 +1,42 @@
-// Write a program in C to rotate an array to the right by K positions.
+// Write a program in C to subtract two m×n matrices.
 
 # include <stdio.h>
 int main()
 {
-    int n, k, temp, arr[100];
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    printf("Enter the elements: ");
-    for(int i = 0; i < n; i++)
+    int m,n,i,j,a[10][10],b[10][10],c[10][10];
+    printf("Enter the number of rows and columns: \n");
+    scanf("%d %d",&m,&n);
+    printf("Enter the elements of the first matrix:\n");
+    for(i=0;i<m;i++)
     {
-        scanf("%d", &arr[i]);
-    }
-    printf("Enter the number of positions to rotate: ");
-    scanf("%d", &k);
-    for(int i = 0; i < k; i++)
-    {
-        temp = arr[n - 1];
-        for(int j = n - 1; j > 0; j--)
+        for(j=0;j<n;j++)
         {
-            arr[j] = arr[j - 1];
+            scanf("%d",&a[i][j]);
         }
-        arr[0] = temp;
     }
-    printf("Array after rotation: ");
-    for(int i = 0; i < n; i++)
+    printf("Enter the elements of the second matrix:\n");
+    for(i=0;i<m;i++)
     {
-        printf("%d ", arr[i]);
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            c[i][j]=a[i][j]-b[i][j];
+        }
+    }
+    printf("The difference of the matrices is:\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d\t",c[i][j]);
+        }
+        printf("\n");
     }
     return 0;
 }

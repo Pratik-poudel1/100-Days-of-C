@@ -1,27 +1,40 @@
-// Write a program in C to find all pairs in an array whose sum equals a given value K.
+// Write a program in C to multiply two 3×3 matrices.
 
 # include <stdio.h>
 int main()
 {
-    int n, k, arr[100];
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    printf("Enter the elements: ");
-    for(int i = 0; i < n; i++)
+    int m,n,i,j,a[3][3],b[3][3],c[3][3];
+    printf("Enter the elements of the first matrix:\n");
+    for(i=0;i<3;i++)
     {
-        scanf("%d", &arr[i]);
-    }
-    printf("Enter the value of K: ");
-    scanf("%d", &k);
-    for(int i = 0; i < n; i++)
-    {
-        for(int j = i + 1; j < n; j++)
+        for(j=0;j<3;j++)
         {
-            if(arr[i] + arr[j] == k)
-            {
-                printf("Pair found: %d %d\n", arr[i], arr[j]);
-            }
+            scanf("%d",&a[i][j]);
         }
+    }
+    printf("Enter the elements of the second matrix:\n");
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            c[i][j]=a[i][j]*b[i][j];
+        }
+    }
+    printf("The product of the matrices is:\n");
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            printf("%d\t",c[i][j]);
+        }
+        printf("\n");
     }
     return 0;
 }
